@@ -7,12 +7,20 @@ I got the idea to create this program from the paper "Pricing Options Using Trin
 The paper is located at https://warwick.ac.uk/fac/sci/maths/people/staff/oleg_zaboronski/fm/trinomial_tree_2009.pdf
 
 ## Compiling and Running
+
+### Compiling
+
 ```sh
 g++ -o tree tree.cpp -std=c++11
 g++ -o iv iv.cpp -std=c++11
 g++ -o greeks greeks.cpp -std=c++11
 ```
-
+### Running
+```sh
+./tree
+./iv
+./greeks
+```
 
 ## Programs Included
 
