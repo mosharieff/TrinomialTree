@@ -162,8 +162,6 @@ int main()
     double dt = t / (double) nodes;
 
 
-    double option_price = PRICE(S,K,r,q,v,dt,nodes,optype);
-
     std::cout << "\nStock Price: " << S << std::endl;
     std::cout << "Strike Price: " << K << std::endl;
     std::cout << "RiskFree Rate: " << r << std::endl;
@@ -172,7 +170,10 @@ int main()
     std::cout << "Expiration: " << t << std::endl;
     std::cout << "Option Type: " << optype << std::endl;
 
+    double option_price = PRICE(S,K,r,q,v,dt,nodes,optype);
+
     std::cout << "Option Price: " << option_price << std::endl;
+    
     std::cout << std::endl;
 
     return 0;

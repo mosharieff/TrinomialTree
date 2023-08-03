@@ -192,6 +192,7 @@ int main()
     // Calculate rho
     double dR = 0.01;
     rho = (PRICE(S, K, r+dR, q, v, t, nodes, optype) - PRICE(S, K, r-dR, q, v, t, nodes, optype))/(2.0*dR);
+    rho /= 100;
 
     std::cout << std::endl;
     std::cout << "Delta: " << delta << std::endl;
