@@ -171,7 +171,7 @@ int main()
     std::cout << "Option Type: " << optype << std::endl;
    
     // Declare greek variables
-    double delta, gamma, theta, vega, rho;
+    double delta, gamma, theta, vega, rho, volga, vanna;
 
     // Calculate delta
     double dS = 0.01*S;
@@ -194,11 +194,21 @@ int main()
     rho = (PRICE(S, K, r+dR, q, v, t, nodes, optype) - PRICE(S, K, r-dR, q, v, t, nodes, optype))/(2.0*dR);
     rho /= 100;
 
+    // Calculate volga
+    volga = (PRICE(S, K, r, q, v+dV, t, nodes, optype) - 2*PRICE(S, K, r, q, v, t, nodes, optype) + PRICE(S, K, r, q, v-dV, t, nodes, optype))/pow(dV, 2);
+    volga /= 100;
+
+    // Calculate vanna
+    vanna = (PRICE(S+dS, K, r, q, v+dV, t, nodes, optype) - PRICE(S+dS, K, r, q, v, t, nodes, optype) - PRICE(S, K, r, q, v+dV, t, nodes, optype) + PRICE(S, K, r, q, v, t, nodes, optype))/(dS*dV);
+    vanna /= 100;
+
     std::cout << std::endl;
     std::cout << "Delta: " << delta << std::endl;
     std::cout << "Gamma: " << gamma << std::endl;
     std::cout << "Theta: " << theta << std::endl;
     std::cout << "Vega: " << vega << std::endl;
+    std::cout << "Volga: " << volga << std::endl;
+    std::cout << "Vanna: " << vanna << std::endl;
     std::cout << "Rho: " << rho << std::endl;
     std::cout << std::endl;
 

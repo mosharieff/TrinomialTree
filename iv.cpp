@@ -181,7 +181,8 @@ int main()
 
     std::cout << "\nStock Price: " << S << std::endl;
     std::cout << "Strike Price: " << K << std::endl;
-    std::cout << "RiskFree Rate: " << r << " Dividend Yield: " << q << std::endl;
+    std::cout << "RiskFree Rate: " << r << std::endl;
+    std::cout << "Dividend Yield: " << q << std::endl;
     std::cout << "Expiration: " << t << std::endl;
     std::cout << "Option Type: " << optype << std::endl;
     std::cout << "Implied Volatility: " << v1 << std::endl;
